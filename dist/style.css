@@ -1,0 +1,150 @@
+:root {
+  --primary-200: #edf4ff;
+  --primary-400: #e7f5f9;
+  --primary-600: #9cb9e5;
+  --primary-700: #6796de;
+
+  --grey-500: rgb(139, 139, 139);
+  --grey-900: rgb(0, 0, 0);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  line-height: 1.6;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100rem;
+  height: 100vh;
+  margin-left: 2rem;
+}
+
+/* For aligning navbar in it's desired position*/
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#nav-bar {
+  width: 45rem; /* Change to use clamp eventually*/
+  display: flex;
+  justify-content: flex-end;
+
+  margin: 1.5rem;
+
+  background: var(--primary-200);
+}
+
+.nav-link {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.875rem;
+  margin: 0.5em 1em 0.5em 0.5em;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+/* Contains company name and description */
+#welcoming {
+  font-family: "Rubik", sans-serif;
+  margin-bottom: 3rem;
+}
+
+.text-logo {
+  font-size: 5.25rem;
+}
+
+/* "MINITURIZED" text in logo */
+.text-logo span.miniturize {
+  display: inline-block;
+  font-size: 3.25rem;
+  transform-origin: bottom right;
+  transition: transform 250ms ease-in;
+}
+
+.text-logo span.miniturize:hover {
+  transform: scale(0.8);
+}
+
+.tag-line {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--grey-500);
+}
+
+/* Hours Section */
+#business-hours {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7.5rem 10rem;
+  grid-template-rows: auto;
+  align-items: center;
+  margin-bottom: 3rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.hours-bkg {
+  width: 50rem;
+  height: 15.75rem;
+  position: absolute;
+  z-index: -1;
+  transform: translateX(-40%);
+  background: var(--primary-400);
+}
+
+#business-hours .table-header,
+#business-hours .table-header::before,
+#business-hours .table-header::after {
+  font-size: 2rem;
+}
+
+#day {
+  font-weight: bold;
+}
+
+/* Socials Section */
+#socials > *,
+#socials i::before,
+#socials i::after {
+  font-size: 1.5rem;
+}
+
+#socials a {
+  margin-right: 1.5rem;
+  transition: color 150ms ease-in-out;
+}
+
+#socials a:hover {
+  color: var(--primary-700);
+}
+
+/* Giant Image on Side of Home Screen*/
+.hero-img {
+  width: 75rem;
+  height: 75rem;
+  position: fixed;
+  top: 10rem;
+  left: calc(25rem + max(0rem, 100vw - 100rem));
+  z-index: -1;
+  border-radius: 50%;
+  overflow: hidden;
+}
