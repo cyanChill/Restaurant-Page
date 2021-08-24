@@ -4,8 +4,11 @@
   --primary-600: #9cb9e5;
   --primary-700: #6796de;
 
-  --grey-500: rgb(139, 139, 139);
+  --grey-400: #959494;
+  --grey-500: #939393;
   --grey-900: rgb(0, 0, 0);
+
+  --grey-transparent-40: rgba(235, 234, 234, 0.4);
 }
 
 *,
@@ -26,8 +29,10 @@ body {
   display: flex;
   justify-content: center;
   line-height: 1.6;
+  font-family: "Roboto", sans-serif;
 }
 
+/* Content Container */
 #content {
   width: 100%;
   max-width: 100rem;
@@ -35,7 +40,6 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
-  transition: all 250ms ease-in-out;
 }
 
 /* For aligning navbar in it's desired position*/
@@ -61,10 +65,15 @@ body {
   margin: 0.5em 1em 0.5em 0.5em;
 }
 
+.nav-link:hover {
+  font-weight: bold;
+}
+
 .selected {
   font-weight: bold;
 }
 
+/* Home Page Styling */
 /* Contains company name and description */
 #welcoming {
   font-family: "Rubik", sans-serif;
@@ -81,7 +90,7 @@ body {
   display: inline-block;
   font-size: 3.25rem;
   transform-origin: bottom right;
-  transition: transform 250ms ease-in;
+  transition: transform 150ms ease-in-out;
 }
 
 .text-logo span.miniturize:hover {
@@ -102,28 +111,29 @@ body {
   grid-template-columns: 7.5rem 10rem;
   grid-template-rows: auto;
   align-items: center;
+  z-index: -1;
   margin-bottom: 3rem;
-  font-family: "Roboto", sans-serif;
   animation: 500ms slide-in-left forwards;
 }
 
-.hours-bkg {
-  width: 50rem;
-  height: 15.75rem;
-  position: absolute;
-  z-index: -1;
-  transform: translateX(-40%);
-  background: var(--primary-400);
-}
-
-#business-hours .table-header,
-#business-hours .table-header::before,
-#business-hours .table-header::after {
+#business-hours .header,
+#business-hours .header::before,
+#business-hours .header::after {
   font-size: 2rem;
 }
 
 #day {
   font-weight: bold;
+}
+
+/* Backdrop for business hours */
+.hours-bkg {
+  width: 50rem;
+  height: 15.75rem;
+  position: absolute;
+  z-index: -100;
+  transform: translateX(-40%);
+  background: var(--primary-400);
 }
 
 /* Socials Section */
@@ -179,4 +189,62 @@ body {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+/* Menu Page Styling */
+.meal .header {
+  font-size: 2rem;
+  text-decoration: underline;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+}
+
+.meal-card {
+  width: 50%;
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  font-family: "Rubik", sans-serif;
+  border-radius: 0.5rem;
+  background: var(--grey-transparent-40);
+}
+
+.meal-card-img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+.meal-name {
+  font-size: 2rem;
+  border-bottom: 3px solid var(--grey-500);
+}
+
+.description {
+  transform: translateY(-50%);
+  height: 5.625rem;
+  padding: 0.5rem;
+  transition: all 500ms ease-in-out;
+}
+
+.meal-card:hover .description {
+  transform: translateY(0);
+}
+
+.meal-description {
+  font-size: 1.05rem;
+  color: var(--grey-400);
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+}
+
+.meal-card:hover .meal-description {
+  opacity: 1;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+  text-align: right;
 }
