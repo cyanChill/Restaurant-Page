@@ -29,12 +29,13 @@ body {
 }
 
 #content {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 100rem;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   margin-left: 2rem;
+  transition: all 250ms ease-in-out;
 }
 
 /* For aligning navbar in it's desired position*/
@@ -51,6 +52,7 @@ body {
   margin: 1.5rem;
 
   background: var(--primary-200);
+  animation: 500ms slide-in-left forwards;
 }
 
 .nav-link {
@@ -71,6 +73,7 @@ body {
 
 .text-logo {
   font-size: 5.25rem;
+  animation: 350ms slide-in-left forwards;
 }
 
 /* "MINITURIZED" text in logo */
@@ -89,6 +92,7 @@ body {
   font-size: 1.75rem;
   font-weight: 300;
   color: var(--grey-500);
+  animation: 500ms slide-in-left forwards;
 }
 
 /* Hours Section */
@@ -100,6 +104,7 @@ body {
   align-items: center;
   margin-bottom: 3rem;
   font-family: "Roboto", sans-serif;
+  animation: 500ms slide-in-left forwards;
 }
 
 .hours-bkg {
@@ -122,6 +127,10 @@ body {
 }
 
 /* Socials Section */
+#socials {
+  animation: 500ms slide-in-left forwards;
+}
+
 #socials > *,
 #socials i::before,
 #socials i::after {
@@ -147,4 +156,27 @@ body {
   z-index: -1;
   border-radius: 50%;
   overflow: hidden;
+  animation: 1s slide-in-right forwards;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
