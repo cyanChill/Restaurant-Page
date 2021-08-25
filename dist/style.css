@@ -6,7 +6,6 @@
 
   --grey-400: #959494;
   --grey-500: #939393;
-  --grey-900: rgb(0, 0, 0);
 
   --grey-transparent-40: rgba(235, 234, 234, 0.4);
 }
@@ -35,7 +34,7 @@ body {
 /* Content Container */
 #content {
   width: 100%;
-  max-width: 100rem;
+  max-width: 90rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -61,11 +60,12 @@ body {
 
 .nav-link {
   font-family: "Nunito", sans-serif;
-  font-size: clamp(1.4rem, 3vw, 1.875rem);
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
   margin: 0.5em 1em 0.5em 0.5em;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus {
   font-weight: bold;
 }
 
@@ -98,7 +98,7 @@ body {
 }
 
 .tag-line {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(1rem, 3vw, 1.75rem);
   font-weight: 300;
   color: var(--grey-500);
   animation: 500ms slide-in-left forwards;
@@ -152,7 +152,8 @@ body {
   transition: color 150ms ease-in-out;
 }
 
-#socials a:hover {
+#socials a:hover,
+#socials a:focus {
   color: var(--primary-700);
 }
 
@@ -208,6 +209,7 @@ body {
 .meal-information {
   flex: 1;
 }
+
 .meal-name {
   font-size: clamp(1.5rem, 2vw, 2rem);
   border-bottom: 3px solid var(--grey-500);
@@ -217,7 +219,6 @@ body {
   height: 7rem;
   display: flex;
   flex-direction: column;
-  transform: translateY(-50%);
   padding: 0.5rem;
   transition: all 500ms ease-in-out;
 }
@@ -230,7 +231,6 @@ body {
   font-size: clamp(0.8rem, 1vw, 1rem);
   flex: 1;
   color: var(--grey-400);
-  opacity: 0;
   transition: all 250ms ease-in-out;
 }
 
@@ -395,4 +395,97 @@ textarea {
 }
 
 @media (max-width: 568px) {
+  #content {
+    margin: 0;
+    align-items: center;
+  }
+
+  /* Nav Bar */
+  .nav-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #nav-bar {
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+
+  /* Home Screen */
+  .hero-img {
+    z-index: -2;
+    top: 15rem;
+    left: -20rem;
+  }
+
+  #socials {
+    width: 100%;
+    text-align: center;
+    background: var(--primary-200);
+    padding: 0.5rem;
+  }
+
+  .text-logo {
+    line-height: 1;
+  }
+
+  .text-logo,
+  .tag-line,
+  #business-hours {
+    padding-left: 1rem;
+  }
+
+  /* Menu Screen */
+  .meal {
+    padding: 0.5rem 1rem;
+    margin: 0;
+  }
+
+  .meals {
+    margin-right: 0;
+  }
+
+  .meal .header {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .meal-card {
+    max-height: 15rem;
+    padding: 0.5rem;
+  }
+
+  .meal-card-img {
+    width: clamp(5rem, 20vw, 10rem);
+    height: clamp(5rem, 20vw, 10rem);
+  }
+
+  .meal-name {
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  .description {
+    height: max-content;
+    transform: translateY(0%);
+  }
+
+  .meal-description {
+    opacity: 1;
+    font-size: clamp(0.75rem, 1vw, 1rem);
+  }
+
+  .price {
+    font-size: clamp(0.9rem, 1vw, 1.5rem);
+  }
+}
+
+@media (hover) {
+  .description {
+    height: max-content;
+    transform: translateY(0%);
+  }
+
+  .meal-description {
+    opacity: 1;
+  }
 }
