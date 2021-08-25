@@ -1,7 +1,7 @@
 import displayHomePage from "./home.js";
 import displayMenuPage from "./menu.js";
 import displayContactPage from "./contact.js";
-import kebabCasefy from "./utility.js";
+import { kebabCasefy } from "./utility.js";
 
 export default function createNav() {
   const navContainer = document.createElement("div");
