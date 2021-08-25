@@ -29,19 +29,19 @@ function createMenuCard(itemDescription) {
   const card = document.createElement("div");
   card.classList.add("meal-card");
   card.innerHTML = `
-        <img
-            src="${itemDescription.img}"
-            alt="${itemDescription.name}"
-            class="meal-card-img"
-        />
-        <div class="meal-information">
-            <p class="meal-name">${itemDescription.name}</p>
-            <div class="description">
-            <p class="meal-description">${itemDescription.description}</p>
-            <p class="price">${itemDescription.price}</p>
-            </div>
+    <img
+        src="${itemDescription.img}"
+        alt="${itemDescription.name}"
+        class="meal-card-img"
+    />
+    <div class="meal-information">
+        <p class="meal-name">${itemDescription.name}</p>
+        <div class="description">
+        <p class="meal-description">${itemDescription.description}</p>
+        <p class="price">${itemDescription.price}</p>
         </div>
-    `;
+    </div>
+  `;
 
   return card;
 }
