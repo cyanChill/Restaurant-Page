@@ -69,8 +69,8 @@ export default function displayHomePage() {
 
   const heroImg = document.createElement("img");
   heroImg.classList.add("hero-img");
-  heroImg.setAttribute("src", "./img/tiny_fruit_tart.png");
-  heroImg.setAttribute("alt", "tiny fruit tart");
+  heroImg.src = "./img/tiny_fruit_tart.png";
+  heroImg.alt = "tiny fruit tart";
   contentContainer.appendChild(heroImg);
 
   const currentPage = document.querySelector("a[data-page='home']");
