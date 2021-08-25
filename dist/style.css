@@ -477,6 +477,15 @@ textarea {
   .price {
     font-size: clamp(0.9rem, 1vw, 1.5rem);
   }
+
+  /* Contact Screen*/
+  #map {
+    margin: 0;
+  }
+
+  #map object {
+    width: 100%;
+  }
 }
 
 @media (hover) {
