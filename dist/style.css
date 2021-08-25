@@ -49,7 +49,7 @@ body {
 }
 
 #nav-bar {
-  width: 45rem; /* Change to use clamp eventually*/
+  width: clamp(20rem, 85vw, 45rem); /* Change to use clamp eventually*/
   display: flex;
   justify-content: flex-end;
 
@@ -61,7 +61,7 @@ body {
 
 .nav-link {
   font-family: "Nunito", sans-serif;
-  font-size: 1.875rem;
+  font-size: clamp(1.4rem, 3vw, 1.875rem);
   margin: 0.5em 1em 0.5em 0.5em;
 }
 
@@ -81,14 +81,14 @@ body {
 }
 
 .text-logo {
-  font-size: 5.25rem;
+  font-size: clamp(3.5rem, 10vw, 5.25rem);
   animation: 350ms slide-in-left forwards;
 }
 
 /* "MINITURIZED" text in logo */
 .text-logo span.miniturize {
   display: inline-block;
-  font-size: 3.25rem;
+  font-size: clamp(2.16rem, 7vw, 3.25rem);
   transform-origin: bottom right;
   transition: transform 150ms ease-in-out;
 }
@@ -98,7 +98,7 @@ body {
 }
 
 .tag-line {
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 300;
   color: var(--grey-500);
   animation: 500ms slide-in-left forwards;
@@ -128,7 +128,7 @@ body {
 
 /* Backdrop for business hours */
 .hours-bkg {
-  width: 50rem;
+  width: clamp(25rem, 90vw, 50rem);
   height: 15.75rem;
   position: absolute;
   z-index: -100;
@@ -173,6 +173,10 @@ body {
 .meals {
   display: flex;
   align-items: center;
+}
+
+.meal {
+  animation: 500ms slide-in-left forwards;
 }
 
 .meal .header {
@@ -338,4 +342,7 @@ textarea {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+@media (max-width: 568px) {
 }
