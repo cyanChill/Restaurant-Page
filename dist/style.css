@@ -77,24 +77,24 @@ body {
 /* Contains company name and description */
 #welcoming {
   font-family: "Rubik", sans-serif;
-  margin-bottom: 3rem;
+  margin: 0 0.5rem 3rem 0.5rem;
 }
 
 .text-logo {
-  font-size: clamp(3.5rem, 10vw, 5.25rem);
   animation: 350ms slide-in-left forwards;
 }
 
 /* "MINITURIZED" text in logo */
 .text-logo span.miniturize {
   display: inline-block;
-  font-size: clamp(2.16rem, 7vw, 3.25rem);
+  font-size: clamp(1.5rem, 7vw, 3.25rem);
   transform-origin: bottom right;
   transition: transform 150ms ease-in-out;
 }
 
-.text-logo span.miniturize:hover {
-  transform: scale(0.8);
+/* "FOODS" text in logo */
+.text-logo span {
+  font-size: clamp(2rem, 10vw, 5.25rem);
 }
 
 .tag-line {
@@ -112,6 +112,7 @@ body {
   grid-template-rows: auto;
   align-items: center;
   z-index: -1;
+  padding-left: 1rem;
   margin-bottom: 3rem;
   animation: 500ms slide-in-left forwards;
 }
@@ -216,15 +217,11 @@ body {
 }
 
 .description {
-  height: 7rem;
+  height: max-content;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
   transition: all 500ms ease-in-out;
-}
-
-.meal-card:hover .description {
-  transform: translateY(0);
 }
 
 .meal-description {
@@ -232,10 +229,6 @@ body {
   flex: 1;
   color: var(--grey-400);
   transition: all 250ms ease-in-out;
-}
-
-.meal-card:hover .meal-description {
-  opacity: 1;
 }
 
 .price {
@@ -413,6 +406,11 @@ textarea {
   }
 
   /* Home Screen */
+  .text-logo {
+    margin-top: 1rem;
+    line-height: 1;
+  }
+
   .hero-img {
     z-index: -2;
     top: 15rem;
@@ -424,16 +422,6 @@ textarea {
     text-align: center;
     background: var(--primary-200);
     padding: 0.5rem;
-  }
-
-  .text-logo {
-    line-height: 1;
-  }
-
-  .text-logo,
-  .tag-line,
-  #business-hours {
-    padding-left: 1rem;
   }
 
   /* Menu Screen */
@@ -488,13 +476,25 @@ textarea {
   }
 }
 
-@media (hover) {
+@media (hover) and (min-width: 568px) {
+  .text-logo span.miniturize:hover {
+    transform: scale(0.8);
+  }
+
   .description {
-    height: max-content;
-    transform: translateY(0%);
+    height: 7rem;
+    transform: translateY(-50%);
+  }
+
+  .meal-card:hover .description {
+    transform: translateY(0);
   }
 
   .meal-description {
+    opacity: 0;
+  }
+
+  .meal-card:hover .meal-description {
     opacity: 1;
   }
 }
