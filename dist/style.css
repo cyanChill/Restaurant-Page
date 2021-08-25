@@ -39,7 +39,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
+  margin-left: clamp(1rem, 3vw, 2rem);
 }
 
 /* For aligning navbar in it's desired position*/
@@ -49,7 +49,7 @@ body {
 }
 
 #nav-bar {
-  width: clamp(20rem, 85vw, 45rem); /* Change to use clamp eventually*/
+  width: clamp(20rem, 85vw, 45rem);
   display: flex;
   justify-content: flex-end;
 
@@ -176,11 +176,12 @@ body {
 }
 
 .meal {
+  margin-right: 1.5rem;
   animation: 500ms slide-in-left forwards;
 }
 
 .meal .header {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   text-decoration: underline;
   font-family: "Noto Sans", sans-serif;
   font-weight: bold;
@@ -189,6 +190,7 @@ body {
 .meal-card {
   width: 50%;
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   padding: 1rem;
   margin: 0.5rem;
@@ -198,8 +200,8 @@ body {
 }
 
 .meal-card-img {
-  width: 10rem;
-  height: 10rem;
+  width: clamp(7rem, 20vw, 10rem);
+  height: clamp(7rem, 20vw, 10rem);
   border-radius: 50%;
 }
 
@@ -207,7 +209,7 @@ body {
   flex: 1;
 }
 .meal-name {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   border-bottom: 3px solid var(--grey-500);
 }
 
@@ -225,6 +227,7 @@ body {
 }
 
 .meal-description {
+  font-size: clamp(0.8rem, 1vw, 1rem);
   flex: 1;
   color: var(--grey-400);
   opacity: 0;
@@ -236,9 +239,13 @@ body {
 }
 
 .price {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1vw, 1.5rem);
   font-family: "Roboto", sans-serif;
   text-align: right;
+}
+
+#dessert {
+  padding-bottom: 2rem;
 }
 
 /* Contact Page Styling */
@@ -341,6 +348,28 @@ textarea {
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@media (max-width: 1150px) {
+  .meals {
+    flex-direction: column;
+  }
+
+  .meal-card {
+    width: 100%;
+  }
+
+  .meal-name {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .meal-description {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+
+  .price {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
   }
 }
 
