@@ -169,28 +169,6 @@ body {
   animation: 1s slide-in-right forwards;
 }
 
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-50%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-right {
-  0% {
-    transform: translateX(50%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 /* Menu Page Styling */
 .meals {
   display: flex;
@@ -257,4 +235,107 @@ body {
   font-size: 1.5rem;
   font-family: "Roboto", sans-serif;
   text-align: right;
+}
+
+/* Contact Page Styling */
+.contact-bkg {
+  width: 50rem;
+  height: 37.5rem;
+  position: absolute;
+  z-index: -100;
+  transform: translateX(-40%);
+  background: var(--primary-400);
+}
+
+#contact-page-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+#contact-information {
+  animation: 500ms slide-in-left forwards;
+}
+
+#contact-information > * {
+  font-family: "Rubik", sans-serif;
+  margin: 1rem;
+}
+
+#contact-information i::before,
+i::after {
+  font-size: 2rem;
+}
+
+#location,
+#phone,
+#email {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#location p,
+#phone p,
+#email p {
+  font-size: 1.5rem;
+}
+
+#email-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#email-form > * {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--primary-600);
+  outline: none;
+}
+
+#email-form > *:focus,
+#email-form > *:hover {
+  border: 2px solid var(--primary-700);
+}
+
+textarea {
+  resize: none;
+}
+
+.btn {
+  cursor: pointer;
+  font-weight: bold;
+  background: var(--primary-600);
+}
+
+.btn:hover {
+  background: var(--primary-700);
+  color: white;
+}
+
+#map {
+  animation: 500ms slide-in-right forwards;
+  margin-right: 1.5rem;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
