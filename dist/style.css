@@ -47,7 +47,6 @@ body {
 #content {
   width: 100%;
   max-width: 90rem;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   padding-left: clamp(1rem, 3vw, 2rem);
