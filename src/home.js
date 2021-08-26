@@ -1,15 +1,29 @@
-import { selectCurrentPage } from "./utility";
+import { selectCurrentPage, createLinkedIcon, createIcon } from "./utility";
+
+const Days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const Hours = ["12pm-6pm", "Closed", "12pm-6pm", "Closed", "12pm-4pm", "2pm-6pm", "2pm-6pm"];
 
 function createWelcoming() {
   const header = document.createElement("header");
   header.id = "welcoming";
 
-  header.innerHTML = `
-    <div class="text-logo">
-        <span class="miniturize">MINITURIZED</span>
-        <span>FOODS</span></div>
-    <p class="tag-line">The best Instagrammable foods</p>
-  `;
+  const logoDiv = document.createElement("div");
+  logoDiv.classList.add("text-logo");
+  header.appendChild(logoDiv);
+
+  const logoTxt1 = document.createElement("span");
+  logoTxt1.classList.add("miniturize");
+  logoTxt1.textContent = "MINITURIZED";
+  logoDiv.appendChild(logoTxt1);
+
+  const logoTxt2 = document.createElement("span");
+  logoTxt2.textContent = "Foods";
+  logoDiv.appendChild(logoTxt2);
+
+  const tagline = document.createElement("p");
+  tagline.classList.add("tag-line");
+  tagline.textContent = "The best Instagrammable foods";
+  logoDiv.appendChild(tagline);
 
   return header;
 }
@@ -17,29 +31,39 @@ function createWelcoming() {
 function createBusinessHours() {
   const section = document.createElement("section");
   section.id = "business-hours";
-  section.innerHTML = `
-    <div class="hours-bkg"></div>
-    <i class="fas fa-calendar-alt header"></i>
-    <p class="header">Hours</p>
-    <div id="day">
-      <p>Mon</p>
-      <p>Tue</p>
-      <p>Wed</p>
-      <p>Thu</p>
-      <p>Fri</p>
-      <p>Sat</p>
-      <p>Sun</p>
-    </div>
-    <div id="hours">
-      <p>12pm-6pm</p>
-      <p>Closed</p>
-      <p>12pm-6pm</p>
-      <p>Closed</p>
-      <p>12pm-4pm</p>
-      <p>2pm-6pm</p>
-      <p>2pm-6pm</p>
-    </div>
-  `;
+
+  const hoursBkg = document.createElement("div");
+  hoursBkg.classList.add("hours-bkg");
+  section.appendChild(hoursBkg);
+
+  let dayHeader = createIcon("fas fa-calendar-alt");
+  dayHeader.classList.add("header");
+  section.appendChild(dayHeader);
+
+  let hourHeader = document.createElement("p");
+  hourHeader.classList.add("header");
+  hourHeader.textContent = "Hours";
+  section.appendChild(hourHeader);
+
+  const dayDiv = document.createElement("div");
+  dayDiv.id = "day";
+  section.appendChild(dayDiv);
+
+  Days.forEach((day) => {
+    const p = document.createElement("p");
+    p.textContent = day;
+    dayDiv.appendChild(p);
+  });
+
+  const hourDiv = document.createElement("div");
+  hourDiv.id = "hours";
+  section.appendChild(hourDiv);
+
+  Hours.forEach((hour) => {
+    const p = document.createElement("p");
+    p.textContent = hour;
+    hourDiv.appendChild(p);
+  });
 
   return section;
 }
@@ -48,12 +72,12 @@ function createSocials() {
   const section = document.createElement("section");
   section.id = "socials";
 
-  section.innerHTML = `
-    <p>Socials</p>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  `;
+  const sectionTitle = document.createElement("p");
+  sectionTitle.textContent = "Socials";
+  section.appendChild(sectionTitle);
+  section.appendChild(createLinkedIcon("#", "fab fa-facebook"));
+  section.appendChild(createLinkedIcon("#", "fab fa-instagram"));
+  section.appendChild(createLinkedIcon("#", "fab fa-twitter"));
 
   return section;
 }
@@ -61,7 +85,7 @@ function createSocials() {
 export default function displayHomePage() {
   const contentContainer = document.getElementById("page-content");
 
-  contentContainer.innerHTML = "";
+  contentContainer.textContent = "";
   contentContainer.appendChild(createWelcoming());
   contentContainer.appendChild(createBusinessHours());
   contentContainer.appendChild(createSocials());

@@ -10,4 +10,20 @@ function selectCurrentPage(page) {
   currentPage.classList.add("selected");
 }
 
-export { kebabCasefy, selectCurrentPage };
+function createLinkedIcon(link, iconClass) {
+  const anchor = document.createElement("a");
+  anchor.href = link;
+
+  anchor.appendChild(createIcon(iconClass));
+
+  return anchor;
+}
+
+function createIcon(iconClass) {
+  const icon = document.createElement("i");
+  icon.classList = iconClass;
+
+  return icon;
+}
+
+export { kebabCasefy, selectCurrentPage, createLinkedIcon, createIcon };

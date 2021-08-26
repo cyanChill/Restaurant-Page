@@ -13,24 +13,15 @@ function createNav() {
 
   const homeLink = createNavLink("Home");
   navbar.appendChild(homeLink);
-  homeLink.addEventListener("click", () => {
-    displayHomePage();
-    highlightSelected();
-  });
+  homeLink.addEventListener("click", displayHomePage);
 
   const menuLink = createNavLink("Menu");
   navbar.appendChild(menuLink);
-  menuLink.addEventListener("click", () => {
-    displayMenuPage();
-    highlightSelected();
-  });
+  menuLink.addEventListener("click", displayMenuPage);
 
   const contactLink = createNavLink("Contact");
   navbar.appendChild(contactLink);
-  contactLink.addEventListener("click", () => {
-    displayContactPage();
-    highlightSelected();
-  });
+  contactLink.addEventListener("click", displayContactPage);
 
   return navContainer;
 }

@@ -2,7 +2,7 @@ import { kebabCasefy, selectCurrentPage } from "./utility";
 import { breakfastItems, lunchItems, dessertItems } from "./menuItems";
 
 function createMenuSection(sectionName, menuItems) {
-  const menuSection = document.createElement("esction");
+  const menuSection = document.createElement("section");
   menuSection.id = kebabCasefy(sectionName);
   menuSection.classList.add("meal");
 
@@ -25,20 +25,35 @@ function createMenuSection(sectionName, menuItems) {
 function createMenuCard(itemDescription) {
   const card = document.createElement("div");
   card.classList.add("meal-card");
-  card.innerHTML = `
-    <img
-        src="${itemDescription.img}"
-        alt="${itemDescription.name}"
-        class="meal-card-img"
-    />
-    <div class="meal-information">
-        <p class="meal-name">${itemDescription.name}</p>
-        <div class="description">
-        <p class="meal-description">${itemDescription.description}</p>
-        <p class="price">${itemDescription.price}</p>
-        </div>
-    </div>
-  `;
+
+  const foodImg = document.createElement("img");
+  foodImg.classList.add("meal-card-img");
+  foodImg.src = itemDescription.img;
+  foodImg.alt = itemDescription.name;
+  card.appendChild(foodImg);
+
+  const mealInfo = document.createElement("div");
+  mealInfo.classList.add("meal-information");
+  card.appendChild(mealInfo);
+
+  const mealName = document.createElement("p");
+  mealName.classList.add("meal-name");
+  mealName.textContent = itemDescription.name;
+  mealInfo.appendChild(mealName);
+
+  const mealDescriptionContainer = document.createElement("div");
+  mealDescriptionContainer.classList.add("description");
+  mealInfo.appendChild(mealDescriptionContainer);
+
+  const mealDescription = document.createElement("p");
+  mealDescription.classList.add("meal-description");
+  mealDescription.textContent = itemDescription.description;
+  mealDescriptionContainer.appendChild(mealDescription);
+
+  const price = document.createElement("p");
+  price.classList.add("price");
+  price.textContent = itemDescription.price;
+  mealDescriptionContainer.appendChild(price);
 
   return card;
 }
@@ -46,7 +61,7 @@ function createMenuCard(itemDescription) {
 export default function displayMenuPage() {
   const contentContainer = document.getElementById("page-content");
 
-  contentContainer.innerHTML = "";
+  contentContainer.textContent = "";
   contentContainer.appendChild(createMenuSection("Breakfast", breakfastItems));
   contentContainer.appendChild(createMenuSection("Lunch", lunchItems));
   contentContainer.appendChild(createMenuSection("Dessert", dessertItems));
