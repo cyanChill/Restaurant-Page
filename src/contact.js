@@ -1,7 +1,5 @@
 import { selectCurrentPage } from "./utility";
 
-const contentContainer = document.getElementById("content");
-
 function createContactSection() {
   const section = document.createElement("div");
   section.id = "contact-page-information";
@@ -41,6 +39,8 @@ function createContactSection() {
 }
 
 export default function displayContactPage() {
+  const contentContainer = document.getElementById("page-content");
+
   contentContainer.innerHTML = "";
   contentContainer.appendChild(createContactSection());
 

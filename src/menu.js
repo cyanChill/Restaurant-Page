@@ -1,8 +1,6 @@
 import { kebabCasefy, selectCurrentPage } from "./utility";
 import { breakfastItems, lunchItems, dessertItems } from "./menuItems";
 
-const contentContainer = document.getElementById("content");
-
 function createMenuSection(sectionName, menuItems) {
   const menuSection = document.createElement("esction");
   menuSection.id = kebabCasefy(sectionName);
@@ -46,6 +44,8 @@ function createMenuCard(itemDescription) {
 }
 
 export default function displayMenuPage() {
+  const contentContainer = document.getElementById("page-content");
+
   contentContainer.innerHTML = "";
   contentContainer.appendChild(createMenuSection("Breakfast", breakfastItems));
   contentContainer.appendChild(createMenuSection("Lunch", lunchItems));

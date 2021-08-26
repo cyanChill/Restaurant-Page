@@ -1,7 +1,5 @@
 import { selectCurrentPage } from "./utility";
 
-const contentContainer = document.getElementById("content");
-
 function createWelcoming() {
   const header = document.createElement("header");
   header.id = "welcoming";
@@ -61,6 +59,8 @@ function createSocials() {
 }
 
 export default function displayHomePage() {
+  const contentContainer = document.getElementById("page-content");
+
   contentContainer.innerHTML = "";
   contentContainer.appendChild(createWelcoming());
   contentContainer.appendChild(createBusinessHours());
