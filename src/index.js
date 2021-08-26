@@ -66,3 +66,4 @@ function highlightItem(item) {
 
 navLinks.forEach((a) => a.addEventListener("mouseenter", highlightLink));
 navLinks.forEach((a) => a.addEventListener("mouseleave", highlightSelected));
+window.addEventListener("resize", highlightSelected);
