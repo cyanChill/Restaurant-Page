@@ -1,4 +1,4 @@
-import createNav from "./navbar";
+import { selectCurrentPage } from "./utility";
 
 const contentContainer = document.getElementById("content");
 
@@ -42,9 +42,7 @@ function createContactSection() {
 
 export default function displayContactPage() {
   contentContainer.innerHTML = "";
-  contentContainer.appendChild(createNav());
   contentContainer.appendChild(createContactSection());
 
-  const currentPage = document.querySelector("a[data-page='contact']");
-  currentPage.classList.add("selected");
+  selectCurrentPage("contact");
 }

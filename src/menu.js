@@ -1,5 +1,4 @@
-import createNav from "./navbar";
-import { kebabCasefy } from "./utility";
+import { kebabCasefy, selectCurrentPage } from "./utility";
 import { breakfastItems, lunchItems, dessertItems } from "./menuItems";
 
 const contentContainer = document.getElementById("content");
@@ -48,11 +47,9 @@ function createMenuCard(itemDescription) {
 
 export default function displayMenuPage() {
   contentContainer.innerHTML = "";
-  contentContainer.appendChild(createNav());
   contentContainer.appendChild(createMenuSection("Breakfast", breakfastItems));
   contentContainer.appendChild(createMenuSection("Lunch", lunchItems));
   contentContainer.appendChild(createMenuSection("Dessert", dessertItems));
 
-  const currentPage = document.querySelector("a[data-page='menu']");
-  currentPage.classList.add("selected");
+  selectCurrentPage("menu");
 }

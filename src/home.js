@@ -1,4 +1,4 @@
-import createNav from "./navbar";
+import { selectCurrentPage } from "./utility";
 
 const contentContainer = document.getElementById("content");
 
@@ -62,7 +62,6 @@ function createSocials() {
 
 export default function displayHomePage() {
   contentContainer.innerHTML = "";
-  contentContainer.appendChild(createNav());
   contentContainer.appendChild(createWelcoming());
   contentContainer.appendChild(createBusinessHours());
   contentContainer.appendChild(createSocials());
@@ -73,6 +72,5 @@ export default function displayHomePage() {
   heroImg.alt = "tiny fruit tart";
   contentContainer.appendChild(heroImg);
 
-  const currentPage = document.querySelector("a[data-page='home']");
-  currentPage.classList.add("selected");
+  selectCurrentPage("home");
 }
