@@ -24,8 +24,19 @@ a {
   color: black;
 }
 
+.highlight {
+  transition: all 300ms ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-bottom: 2px solid black;
+  z-index: -1;
+}
+
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   line-height: 1.6;
   font-family: "Roboto", sans-serif;
@@ -38,7 +49,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-left: clamp(1rem, 3vw, 2rem);
+  padding-left: clamp(1rem, 3vw, 2rem);
 }
 
 /* For aligning navbar in it's desired position*/
@@ -62,6 +73,7 @@ body {
   font-family: "Nunito", sans-serif;
   font-size: clamp(1.25rem, 3vw, 1.875rem);
   margin: 0.5em 1em 0.5em 0.5em;
+  border-bottom: 2px solid transparent;
 }
 
 .nav-link:hover,
@@ -389,7 +401,7 @@ textarea {
 
 @media (max-width: 568px) {
   #content {
-    margin: 0;
+    padding: 0;
     align-items: center;
   }
 
