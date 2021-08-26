@@ -38,6 +38,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   line-height: 1.6;
   font-family: "Roboto", sans-serif;
 }
@@ -54,6 +55,8 @@ body {
 
 /* For aligning navbar in it's desired position*/
 .nav-container {
+  width: 100%;
+  max-width: 90rem;
   display: flex;
   justify-content: flex-end;
 }
